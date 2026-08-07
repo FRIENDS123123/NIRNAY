@@ -101,3 +101,12 @@ body {
 ::-webkit-scrollbar-track {
   background-color: transparent;
 }
+
+/* For strips that scroll sideways in tight space (the nav on small screens) —
+   the 10px bar above would dominate a 64px-tall header. */
+.scrollbar-none {
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}

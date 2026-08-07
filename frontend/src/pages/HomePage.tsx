@@ -1,14 +1,23 @@
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import { Logo } from "@/components/layout/Logo";
 import { SearchBar } from "@/components/search/SearchBar";
 import { citizens } from "@/mock-data/citizens";
 
-const quickAccess = citizens.map((c) => ({ id: c.citizenId, name: c.identity.fullName }));
+const quickAccess = citizens.map((c) => ({
+  id: c.citizenId,
+  name: c.identity.fullName,
+  risk: c.aiSummary.riskLevel,
+}));
+
+const riskDotClasses = {
+  Low: "bg-success-500",
+  Medium: "bg-warning-500",
+  High: "bg-danger-500",
+} as const;
 
 export function HomePage() {
-  const navigate = useNavigate();
-
   return (
     <div className="flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center px-6 py-16">
       <motion.div
@@ -38,13 +47,23 @@ export function HomePage() {
         <div className="mt-10 flex flex-wrap items-center justify-center gap-2 text-xs text-ink-400">
           <span>Try a synthetic profile:</span>
           {quickAccess.map((c) => (
-            <button
+            <Link
               key={c.id}
-              onClick={() => navigate(`/citizens/${c.id}`)}
-              className="rounded-full border border-ink-200 bg-white px-2.5 py-1 font-medium text-ink-600 transition-colors hover:border-primary-300 hover:text-primary-700"
+              to={`/citizens/${c.id}`}
+              className="group inline-flex items-center gap-1.5 rounded-full border border-ink-200 bg-white px-2.5 py-1 font-medium text-ink-600 transition-colors hover:border-primary-300 hover:text-primary-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400"
             >
+              <span
+                aria-hidden="true"
+                className={`h-1.5 w-1.5 rounded-full ${riskDotClasses[c.risk]}`}
+              />
               {c.name}
-            </button>
+              <ArrowRight
+                size={11}
+                strokeWidth={2.5}
+                aria-hidden="true"
+                className="text-ink-300 transition-transform group-hover:translate-x-0.5"
+              />
+            </Link>
           ))}
         </div>
       </motion.div>
