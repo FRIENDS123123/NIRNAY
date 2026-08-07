@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Build output
+dist/
+build/
+
+# Environment
+.env
+.env.local
+
+# Database (local dev artifacts, not source)
+*.db
+*.sqlite
+*.sqlite3
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

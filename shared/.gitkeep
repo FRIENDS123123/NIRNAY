@@ -1,0 +1,3 @@
+Placeholder. Cross-cutting type contracts shared conceptually between
+frontend and backend (CitizenProfile, RiskSignal, EvidenceRecord shapes)
+land here as they're introduced — see ../architecture/COMPONENT_DIAGRAM.md.
