@@ -50,7 +50,7 @@ export function HomePage() {
             <Link
               key={c.id}
               to={`/citizens/${c.id}`}
-              className="group inline-flex items-center gap-1.5 rounded-full border border-ink-200 bg-white px-2.5 py-1 font-medium text-ink-600 transition-colors hover:border-primary-300 hover:text-primary-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400"
+              className="group inline-flex items-center gap-1.5 rounded-full border border-ink-200 bg-surface px-2.5 py-1 font-medium text-ink-600 transition-colors hover:border-primary-300 hover:text-primary-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400"
             >
               <span
                 aria-hidden="true"

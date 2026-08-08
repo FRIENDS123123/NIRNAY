@@ -74,7 +74,7 @@ export function InvestigationsPage() {
                   "rounded-full border px-3 py-1 text-xs font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400",
                   active
                     ? "border-primary-300 bg-primary-50 text-primary-700"
-                    : "border-ink-200 bg-white text-ink-500 hover:border-ink-300 hover:text-ink-700",
+                    : "border-ink-200 bg-surface text-ink-500 hover:border-ink-300 hover:text-ink-700",
                 )}
               >
                 {value}

@@ -76,7 +76,7 @@ function PanelBlock({
         <Icon size={15} strokeWidth={2.25} aria-hidden="true" />
         <h3 className="text-sm font-semibold">{title}</h3>
       </div>
-      <div className="rounded-lg bg-white p-3.5">{children}</div>
+      <div className="rounded-lg bg-surface p-3.5">{children}</div>
     </section>
   );
 }
@@ -139,7 +139,7 @@ export function AISummaryPanel({ citizen }: { citizen: Citizen }) {
             {aiSummary.domainSummaries.map((summary) => {
               const Icon = domainIcons[summary.key];
               return (
-                <article key={summary.key} className="rounded-xl bg-white p-4">
+                <article key={summary.key} className="rounded-xl bg-surface p-4">
                   <div className="flex items-center gap-2 text-primary-700">
                     <Icon size={14} strokeWidth={2.5} aria-hidden="true" />
                     <h4 className="text-[13px] font-bold text-ink-900">{summary.title}</h4>

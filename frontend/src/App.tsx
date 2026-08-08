@@ -2,6 +2,7 @@ import { Suspense, lazy } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Loader2 } from "lucide-react";
 import { AppShell } from "@/components/layout/AppShell";
+import { useThemeEffect } from "@/lib/settings/use-theme";
 import { HomePage } from "@/pages/HomePage";
 
 // The landing page ships in the initial bundle because it is the entry point
@@ -18,6 +19,9 @@ const InvestigationDetailPage = lazy(() =>
   import("@/pages/InvestigationDetailPage").then((m) => ({ default: m.InvestigationDetailPage })),
 );
 const ReportsPage = lazy(() => import("@/pages/ReportsPage").then((m) => ({ default: m.ReportsPage })));
+const ReportDetailPage = lazy(() =>
+  import("@/pages/ReportDetailPage").then((m) => ({ default: m.ReportDetailPage })),
+);
 const SettingsPage = lazy(() => import("@/pages/SettingsPage").then((m) => ({ default: m.SettingsPage })));
 
 function RouteFallback() {
@@ -29,6 +33,9 @@ function RouteFallback() {
 }
 
 export default function App() {
+  // Stamps `data-theme` on <html>; the palette swap lives in index.css.
+  useThemeEffect();
+
   return (
     <BrowserRouter>
       <AppShell>
@@ -40,6 +47,7 @@ export default function App() {
             <Route path="/investigations" element={<InvestigationsPage />} />
             <Route path="/investigations/:investigationId" element={<InvestigationDetailPage />} />
             <Route path="/reports" element={<ReportsPage />} />
+            <Route path="/reports/:reportId" element={<ReportDetailPage />} />
             <Route path="/settings" element={<SettingsPage />} />
           </Routes>
         </Suspense>

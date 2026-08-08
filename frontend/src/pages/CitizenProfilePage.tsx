@@ -7,6 +7,7 @@ import { ProfileHeader } from "@/components/citizen/ProfileHeader";
 import { AISummaryPanel } from "@/components/citizen/AISummaryPanel";
 import { ProfileSections } from "@/components/citizen/ProfileSections";
 import { StartInvestigationButton } from "@/components/citizen/StartInvestigationButton";
+import { LegalRecordsPanel } from "@/components/legal/LegalRecordsPanel";
 import { CitizenTimeline } from "@/components/citizen/CitizenTimeline";
 import { ProfileSkeleton } from "@/components/ui/Skeleton";
 import { EmptyState } from "@/components/ui/EmptyState";
@@ -68,6 +69,7 @@ export function CitizenProfilePage() {
             <ProfileHeader citizen={citizen} />
             <AISummaryPanel citizen={citizen} />
             <ProfileSections citizen={citizen} />
+            <LegalRecordsPanel citizen={citizen} />
             <CitizenTimeline citizen={citizen} />
           </div>
         </EvidenceProvider>

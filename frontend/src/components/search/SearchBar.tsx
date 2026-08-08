@@ -146,7 +146,7 @@ export function SearchBar({
       <form onSubmit={handleSubmit} role="search" className="w-full">
         <div
           className={cn(
-            "flex items-center gap-3 rounded-2xl border border-ink-200 bg-white px-4 shadow-[var(--shadow-hero)] transition-all focus-within:border-primary-300 focus-within:shadow-[0_0_0_4px_rgba(59,55,184,0.08)]",
+            "flex items-center gap-3 rounded-2xl border border-ink-200 bg-surface px-4 shadow-[var(--shadow-hero)] transition-all focus-within:border-primary-300 focus-within:shadow-[0_0_0_4px_rgba(59,55,184,0.08)]",
             isHero ? "h-16 md:px-5" : "h-12",
             showDropdown && "rounded-b-none border-b-transparent",
           )}
@@ -214,7 +214,7 @@ export function SearchBar({
                 "rounded-full border px-3 py-1 text-xs font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400",
                 mode === option.value
                   ? "border-primary-300 bg-primary-50 text-primary-700"
-                  : "border-ink-200 bg-white text-ink-500 hover:border-ink-300 hover:text-ink-700",
+                  : "border-ink-200 bg-surface text-ink-500 hover:border-ink-300 hover:text-ink-700",
               )}
             >
               {option.label}
@@ -230,7 +230,7 @@ export function SearchBar({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -4 }}
             transition={{ duration: 0.14 }}
-            className="absolute inset-x-0 top-full z-40 -mt-px overflow-hidden rounded-b-2xl border border-ink-200 border-t-ink-100 bg-white shadow-[var(--shadow-card-hover)]"
+            className="absolute inset-x-0 top-full z-40 -mt-px overflow-hidden rounded-b-2xl border border-ink-200 border-t-ink-100 bg-surface shadow-[var(--shadow-card-hover)]"
           >
             <ul id={listboxId} role="listbox" aria-label="Search suggestions" className="max-h-80 overflow-y-auto py-1.5">
               {!trimmed && (

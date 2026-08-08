@@ -1,0 +1,185 @@
+Section,Field,Value
+Report,Report ID,NIR-RPT-2026-0001
+Report,Title,Citizen Intelligence Report — Vikram Singh Chauhan
+Report,Generated at,"08 Aug 2026, 11:17 am"
+Report,Officer,R. Sharma
+Report,Department,Central Intelligence Coordination Unit
+Report,Active role,Reviewer
+Report,Data classification,Synthetic demonstration data
+Citizen Identity,Full name,Vikram Singh Chauhan
+Citizen Identity,Citizen ID,NIR-CIT-104871
+Citizen Identity,Date of birth,03 Nov 1979
+Citizen Identity,Gender,Male
+Citizen Identity,Aadhaar,XXXX XXXX 7710
+Citizen Identity,PAN,VSCPC7710M
+Citizen Identity,Passport,P4471902
+Citizen Identity,Driving licence,DL04 20050034521
+Citizen Identity,Voter ID,HRX7710238
+Citizen Identity,Ration card,HR-GGN-2009-771002
+Citizen Identity,ABHA ID,31-7710-8842-0193
+Citizen Identity,Phone,+91 99XXX XX108
+Citizen Identity,Email,v.chauhan@synthetic.example
+Citizen Identity,Resolution confidence,81%
+Citizen Identity,Registered address,"House No. 21, Sector 45, Gurugram, Haryana — 122003"
+Investigation,Investigation ID,NIR-INV-2026-0001
+Investigation,Case status,Open
+Investigation,Priority,Critical
+Investigation,Assigned officer,R. Sharma
+Investigation,Opened,"08 Aug 2026, 11:17 am"
+Investigation,Last updated,"08 Aug 2026, 11:17 am"
+Investigation,Reason,Opened from Citizen 360 resolution — high risk (78/100) across 11 correlated departments. Primary lead: Reconcile the source of funds for the 2021 and 2023 acquisitions against filed income and sanctioned credit for those years.
+Risk,Risk level,High
+Risk,Risk score,78/100
+Risk,Citizen status,Flagged
+Risk,AI confidence,81%
+Risk,Rationale 1,Roughly ₹4.4 crore of asset acquisition is unexplained by declared income or recorded credit facilities. [evidence: EV-IT-03 EV-LR-02 EV-LR-03]
+Risk,Rationale 2,"Core operating licence expired over a year ago while the fleet remains registered, cited and in use. [evidence: EV-RTA-01 EV-TRD-01 EV-TRD-02]"
+Risk,Rationale 3,Statutory non-compliance recurs across four separate departments rather than appearing as an isolated lapse. [evidence: EV-IT-02 EV-RTA-02 EV-TRD-03 EV-GST-01]
+Risk,Rationale 4,"Travel behaviour is inconsistent with declared income, and one departure record is flagged. [evidence: EV-IM-01 EV-IM-02]"
+AI Summary,Executive summary,"Vikram Singh Chauhan is a 45-year-old logistics proprietor in Gurugram, resolved across eleven departments at 81% confidence — the lowest of the resolved records, driven by two historical addresses that could not be corroborated. Property acquisitions of ₹5.00 crore between 2021 and 2023 sit against ₹59,30,000 of cumulative declared income for the same period, with no recorded financing to bridge the gap. The core transport operator licence lapsed in April 2024 while two heavy goods vehicles remain actively registered and in use. International travel is frequent and destination-concentrated in a way the declared income does not explain. Recommended for escalation."
+AI Summary,Identity Summary,"Primary identifiers (Aadhaar, PAN, passport, voter ID) are verified and mutually consistent. Resolution confidence is depressed by two historical addresses — a Delhi address from 2004-09 in particular matched at only 44%. [evidence: EV-ID-01 EV-ADR-01]"
+AI Summary,Income Summary,"Declared income across FY2021-25 totals ₹59,30,000. The FY2022-23 return is overdue with nil tax paid, and the FY2024-25 return is under departmental review. An income certificate issued in 2023 was never verified. [evidence: EV-IT-01 EV-IT-02 EV-IT-03 EV-REV-02]"
+AI Summary,Property Summary,"Four holdings including a government lease. The 2021 warehouse (₹3,20,00,000) and 2023 land parcel (₹1,80,00,000) together exceed cumulative declared income by roughly ₹4.4 crore. The land parcel carries an open mutation objection before the Revenue Court. [evidence: EV-LR-02 EV-LR-03 EV-IT-03 EV-REV-01]"
+AI Summary,Travel Summary,"Eleven international trips since 2019 with an average stay of 4.0 days, seven of them to the same destination. No foreign business entity is recorded against the citizen or the company that would explain the frequency. One departure carries a flagged immigration status. [evidence: EV-IM-01 EV-IM-02 EV-MCA-01]"
+AI Summary,Employment Summary,"Proprietor since 2011 with an active managing directorship from 2020. One of two GST registrations is suspended with no filing since November 2023, while the associated warehousing operation remains registered. [evidence: EV-MCA-01 EV-MCA-02 EV-GST-01]"
+AI Summary,Behaviour Summary,"A repeating pattern of lapsed statutory obligations: operator licence expired, national permit expired, fitness certificate expired, one challan unpaid and another contested, life insurance lapsed, and a working capital facility marked irregular. [evidence: EV-RTA-01 EV-RTA-02 EV-TRD-02 EV-TRD-03 EV-BCB-02]"
+AI Summary,Risk Summary,"Risk score 78/100 (High), driven by three independent signals: an unexplained income-to-asset gap, continued commercial operation under an expired licence, and travel behaviour unsupported by declared income. [evidence: EV-IT-03 EV-RTA-01 EV-TRD-01 EV-IM-01]"
+Recommendations,Escalate for a joint financial records cross-check (High priority),Open a coordinated review between the Income Tax Department and the Land Records Department covering FY2021-25 to establish the source of funds behind the warehouse and land acquisitions. This is the single largest unexplained signal on the profile. [evidence: EV-IT-03 EV-LR-02 EV-LR-03 EV-BCB-02]
+Recommendations,Notify the Regional Transport Authority of active operation under an expired licence (High priority),"The operator licence and national permit both expired in 2024, yet a fleet vehicle was challaned for permit violation in May 2024 and a second is running on an expired fitness certificate. Enforcement should be notified independently of the financial review. [evidence: EV-RTA-01 EV-RTA-02 EV-TRD-01 EV-TRD-02 EV-TRD-03]"
+Recommendations,Request an immigration review of the flagged departure (High priority),"The 26 September 2024 departure to the UAE carries a flagged status that has not been resolved. Combined with eleven trips in five years against declared income, this warrants a formal request to the Bureau of Immigration. [evidence: EV-IM-01 EV-IM-02 EV-IT-03]"
+Recommendations,Suspend the PM Kisan disbursement pending the mutation outcome (Medium priority),Scheme eligibility rests on a landholding whose mutation is objected to before the Revenue Court. Disbursement should pause until the objection is decided. [evidence: EV-REV-01 EV-LR-03]
+Recommendations,"Flag for manual review before any new licence, permit or scheme approval (Medium priority)","Given open items across four departments, no new statutory approval should be granted to this citizen or the associated entities without officer review. [evidence: EV-RTA-01 EV-IT-02 EV-GST-01 EV-REV-02]"
+Evidence,EV-ID-01,"Core identity record with linked PAN and Aadhaar | dept: Identity Authority | ref: IDA/GGN/2012/7710 | confidence: 94% | Verified | linked: Identity → Aadhaar, PAN"
+Evidence,EV-IT-01,"Income tax return, AY 2024-25 — declared income ₹22,00,000, under review | dept: Income Tax Department | ref: ITD/ITR/2024/4471903 | confidence: 90% | Pending Verification | linked: Financial → Income tax"
+Evidence,EV-IT-02,FY2022-23 return recorded as overdue with nil tax paid | dept: Income Tax Department | ref: ITD/DEF/2023/104871 | confidence: 93% | Verified | linked: Financial → Income tax
+Evidence,EV-IT-03,"Cumulative declared income FY2021-25 of ₹59,30,000 | dept: Income Tax Department | ref: ITD/HIST/104871 | confidence: 91% | Verified | linked: Financial → Income tax"
+Evidence,EV-LR-01,"Residential property registration, Sector 45 | dept: Land Records Department | ref: LRD/GGN2/2015/77002 | confidence: 96% | Verified | linked: Property → PROP-77002"
+Evidence,EV-LR-02,"Commercial warehouse registration — ₹3,20,00,000 | dept: Land Records Department | ref: LRD/GGN3/2021/77890 | confidence: 95% | Verified | linked: Property → PROP-77890"
+Evidence,EV-LR-03,"Agricultural land registration — ₹1,80,00,000 | dept: Land Records Department | ref: LRD/PTD/2023/78341 | confidence: 92% | Verified | linked: Property → PROP-78341"
+Evidence,EV-REV-01,"Open mutation objection before the Revenue Court, Pataudi | dept: Revenue Department | ref: REV/PTD/2024/00318 | confidence: 87% | Disputed | linked: Property → PROP-78341 dispute"
+Evidence,EV-REV-02,Income certificate issued but never verified | dept: Revenue Department | ref: REV/HR/2023/81023 | confidence: 31% | Unverified | linked: Document → DOC-81023
+Evidence,EV-RTA-01,"Transport operator licence expired 30 Apr 2024, no renewal on file | dept: Regional Transport Authority | ref: RTA/HR/2011/51002 | confidence: 97% | Verified | linked: Licence → LIC-51002"
+Evidence,EV-RTA-02,National goods carriage permit expired 31 May 2024 | dept: Regional Transport Authority | ref: RTA/HR/NP/2019/1102 | confidence: 95% | Verified | linked: Licence → LIC-51004
+Evidence,EV-TRD-01,"Two heavy goods vehicles still actively registered to the business | dept: Transport Department | ref: TRD/HR/FLEET/104871 | confidence: 96% | Verified | linked: Vehicle → VEH-61120, VEH-61121"
+Evidence,EV-TRD-02,Unpaid challan for operating without a valid permit | dept: Transport Department | ref: TRD/CHL/2024/23890 | confidence: 94% | Verified | linked: Vehicle → VEH-61120 challan
+Evidence,EV-TRD-03,Fleet vehicle operating with an expired fitness certificate | dept: Transport Department | ref: TRD/FC/2024/1103 | confidence: 93% | Verified | linked: Vehicle → VEH-61121 fitness
+Evidence,EV-PP-01,"Passport record, active to 2029 | dept: Regional Passport Office | ref: RPO/GGN/2019/4471902 | confidence: 96% | Verified | linked: Travel → Passport"
+Evidence,EV-IM-01,"Immigration history — 11 trips in 5 years, 7 to a single destination | dept: Bureau of Immigration | ref: BOI/HIST/104871 | confidence: 89% | Verified | linked: Travel → Immigration records"
+Evidence,EV-IM-02,"Flagged departure record, 26 Sep 2024 | dept: Bureau of Immigration | ref: BOI/DEP/2024/771041 | confidence: 85% | Pending Verification | linked: Travel → IMM-2"
+Evidence,EV-MCA-01,Active managing directorship in a private limited company | dept: Ministry of Corporate Affairs | ref: MCA/DIN/08841027 | confidence: 93% | Verified | linked: Employment → Directorships
+Evidence,EV-MCA-02,"Proprietorship business registration, active since 2011 | dept: Ministry of Corporate Affairs | ref: MCA/HR/2011/044120 | confidence: 94% | Verified | linked: Document → DOC-81022"
+Evidence,EV-GST-01,"Second GST registration suspended, last filing Nov 2023 | dept: Goods & Services Tax Network | ref: GST/HR/2021/7710M2 | confidence: 90% | Verified | linked: Employment → GST"
+Evidence,EV-BCB-01,"Credit profile — score 618, one irregular working capital facility | dept: Banking & Credit Bureau | ref: BCB/RPT/2025/104871 | confidence: 91% | Verified | linked: Financial → Credit profile"
+Evidence,EV-BCB-02,"Working capital facility ₹54,10,000 outstanding, marked irregular | dept: Banking & Credit Bureau | ref: BCB/LON/2021/6000 | confidence: 90% | Verified | linked: Financial → Loans"
+Evidence,EV-ADR-01,Two historical addresses with low geo-match confidence | dept: Identity Authority | ref: IDA/ADR/104871 | confidence: 44% | Pending Verification | linked: Address → Historical
+Verification,Aadhaar,"status: Rejected | category: Identity | dept: Identity Authority | ref: XXXX XXXX 7710 | reviewed by: R. Sharma | at: 08 Aug 2026, 11:17 am | notes: Document could not be corroborated against the source department."
+Verification,PAN,status: Verified | category: Identity | dept: Income Tax Department | ref: VSCPC7710M | reviewed by: Not reviewed | at: — | notes: —
+Verification,Voter ID,status: Verified | category: Identity | dept: Election Commission | ref: HRX7710238 | reviewed by: Not reviewed | at: — | notes: —
+Verification,Ration Card,status: Verified | category: Government | dept: Revenue Department | ref: HR-GGN-2009-771002 | reviewed by: Not reviewed | at: — | notes: —
+Verification,ABHA Health ID,status: Verified | category: Health | dept: Health Authority | ref: 31-7710-8842-0193 | reviewed by: Not reviewed | at: — | notes: —
+Verification,Passport,status: Verified | category: Passport | dept: Regional Passport Office | ref: P4471902 | reviewed by: Not reviewed | at: — | notes: —
+Verification,Aadhaar,status: Verified | category: Document | dept: Identity Authority | ref: XXXX XXXX 7710 | reviewed by: Not reviewed | at: — | notes: —
+Verification,PAN Card,status: Verified | category: Document | dept: Income Tax Department | ref: VSCPC7710M | reviewed by: Not reviewed | at: — | notes: —
+Verification,Business Registration Certificate,status: Verified | category: Employment | dept: Ministry of Corporate Affairs | ref: MCA/HR/2011/044120 | reviewed by: Not reviewed | at: — | notes: —
+Verification,Income Certificate,status: Draft | category: Government | dept: Revenue Department | ref: REV/HR/2023/81023 | reviewed by: Not reviewed | at: — | notes: —
+Verification,Passport,"status: Verified | category: Passport | dept: Regional Passport Office, Gurugram | ref: P4471902 | reviewed by: Not reviewed | at: — | notes: —"
+Verification,Land Mutation Extract,status: Rejected | category: Land | dept: Revenue Department | ref: REV/PTD/2024/00318 | reviewed by: Not reviewed | at: — | notes: —
+Verification,Residential — Plot 21 / Sector 45,status: Verified | category: Property | dept: Land Records Department | ref: PROP-77002 | reviewed by: Not reviewed | at: — | notes: —
+Verification,Commercial — Unit 7 / IA-68,status: Verified | category: Property | dept: Land Records Department | ref: PROP-77890 | reviewed by: Not reviewed | at: — | notes: —
+Verification,Agricultural Land — Khasra No. 112,status: Rejected | category: Land | dept: Land Records Department | ref: PROP-78341 | reviewed by: Not reviewed | at: — | notes: —
+Verification,Government Lease — Yard Plot 4,status: Verified | category: Property | dept: Revenue Department | ref: PROP-79115 | reviewed by: Not reviewed | at: — | notes: —
+Verification,Tata Prima 4928.S (Heavy Goods) (HR55 AB 1102),status: Verified | category: Vehicle | dept: Transport Department | ref: HR55 AB 1102 | reviewed by: Not reviewed | at: — | notes: —
+Verification,Ashok Leyland 3520 (Heavy Goods) (HR55 AB 1103),status: Needs Review | category: Vehicle | dept: Transport Department | ref: HR55 AB 1103 | reviewed by: Not reviewed | at: — | notes: —
+Verification,Toyota Camry Hybrid (HR26 CQ 7781),status: Verified | category: Vehicle | dept: Transport Department | ref: HR26 CQ 7781 | reviewed by: Not reviewed | at: — | notes: —
+Verification,Royal Enfield Classic 350 (HR26 AZ 4410),status: Needs Review | category: Vehicle | dept: Transport Department | ref: HR26 AZ 4410 | reviewed by: Not reviewed | at: — | notes: —
+Verification,Transport Operator Licence,status: Needs Review | category: Licence | dept: Regional Transport Authority | ref: RTA/HR/2011/51002 | reviewed by: Not reviewed | at: — | notes: —
+Verification,Driving Licence (HMV),status: Verified | category: Licence | dept: Regional Transport Authority | ref: DL04 20050034521 | reviewed by: Not reviewed | at: — | notes: —
+Verification,Goods Carriage Permit (National),status: Needs Review | category: Licence | dept: Regional Transport Authority | ref: RTA/HR/NP/2019/1102 | reviewed by: Not reviewed | at: — | notes: —
+Verification,Warehousing Operator Registration,status: Verified | category: Licence | dept: Revenue Department | ref: REV/HR/WH/2021/7789 | reviewed by: Not reviewed | at: — | notes: —
+Verification,Pradhan Mantri Awas Yojana,status: Draft | category: Benefit | dept: Welfare Department | ref: BEN-40011 | reviewed by: Not reviewed | at: — | notes: —
+Verification,Ayushman Bharat,status: Draft | category: Medical | dept: Health Authority | ref: BEN-40012 | reviewed by: Not reviewed | at: — | notes: —
+Verification,PM Kisan Samman Nidhi,status: Needs Review | category: Benefit | dept: Welfare Department | ref: BEN-40013 | reviewed by: Not reviewed | at: — | notes: —
+Verification,National Pension Scheme,status: Verified | category: Benefit | dept: Welfare Department | ref: BEN-40014 | reviewed by: Not reviewed | at: — | notes: —
+Verification,Direct Benefit Transfer (LPG Subsidy),status: Draft | category: Benefit | dept: Welfare Department | ref: BEN-40015 | reviewed by: Not reviewed | at: — | notes: —
+Verification,GST Registration — Chauhan Freight & Logistics,status: Verified | category: Employment | dept: Goods & Services Tax Network | ref: 06VSCPC7710M1ZR | reviewed by: Not reviewed | at: — | notes: —
+Verification,GST Registration — Pataudi Warehousing Services,status: Needs Review | category: Employment | dept: Goods & Services Tax Network | ref: 06VSCPC7710M2ZQ | reviewed by: Not reviewed | at: — | notes: —
+Verification,Directorship — Chauhan Logistics Holdings Pvt. Ltd.,status: Verified | category: Employment | dept: Ministry of Corporate Affairs | ref: U63030HR2020PTC088410 | reviewed by: Not reviewed | at: — | notes: —
+Verification,Directorship — Pataudi Coldchain Pvt. Ltd.,status: Draft | category: Employment | dept: Ministry of Corporate Affairs | ref: U15490HR2022PTC099213 | reviewed by: Not reviewed | at: — | notes: —
+Verification,Income Tax Return — AY 2024-25,status: Needs Review | category: Financial | dept: Income Tax Department | ref: ITR-2024-25 | reviewed by: Not reviewed | at: — | notes: —
+Verification,Income Tax Return — AY 2023-24,status: Verified | category: Financial | dept: Income Tax Department | ref: ITR-2023-24 | reviewed by: Not reviewed | at: — | notes: —
+Verification,Income Tax Return — AY 2022-23,status: Rejected | category: Financial | dept: Income Tax Department | ref: ITR-2022-23 | reviewed by: Not reviewed | at: — | notes: —
+Verification,Commercial Vehicle Loan — Northern Commercial Bank,status: Verified | category: Financial | dept: Banking & Credit Bureau | ref: LON-1 | reviewed by: Not reviewed | at: — | notes: —
+Verification,Working Capital — Capital Urban Bank,status: Rejected | category: Financial | dept: Banking & Credit Bureau | ref: LON-2 | reviewed by: Not reviewed | at: — | notes: —
+Verification,Vehicle Insurance — Northern General Insurance,status: Verified | category: Vehicle | dept: Northern General Insurance | ref: NGI-COM-1102-2024 | reviewed by: Not reviewed | at: — | notes: —
+Verification,Life Insurance — Bharat Life Assurance,status: Needs Review | category: Insurance | dept: Bharat Life Assurance | ref: BLA-7710-2201 | reviewed by: Not reviewed | at: — | notes: —
+Verification,Current Address,status: Verified | category: Government | dept: Land Records Department | ref: ADR-104871-C | reviewed by: Not reviewed | at: — | notes: —
+Verification,Permanent Address,status: Needs Review | category: Government | dept: Revenue Department | ref: ADR-104871-P | reviewed by: Not reviewed | at: — | notes: —
+Verification,Historical Address,status: Needs Review | category: Government | dept: Municipal Corporation | ref: ADR-104871-H1 | reviewed by: Not reviewed | at: — | notes: —
+Verification,Historical Address,status: Needs Review | category: Government | dept: Identity Authority | ref: ADR-104871-H2 | reviewed by: Not reviewed | at: — | notes: —
+Verification,Immigration Arrival — Delhi (DEL),status: Verified | category: Travel | dept: Bureau of Immigration | ref: BOI/ARR/2024/771088 | reviewed by: Not reviewed | at: — | notes: —
+Verification,Immigration Departure — Delhi (DEL),status: Needs Review | category: Travel | dept: Bureau of Immigration | ref: BOI/DEP/2024/771041 | reviewed by: Not reviewed | at: — | notes: —
+Verification,Immigration Arrival — Delhi (DEL),status: Verified | category: Travel | dept: Bureau of Immigration | ref: BOI/ARR/2024/662190 | reviewed by: Not reviewed | at: — | notes: —
+Verification,Immigration Departure — Delhi (DEL),status: Verified | category: Travel | dept: Bureau of Immigration | ref: BOI/DEP/2024/662055 | reviewed by: Not reviewed | at: — | notes: —
+Verification,Immigration Arrival — Delhi (DEL),status: Verified | category: Travel | dept: Bureau of Immigration | ref: BOI/ARR/2023/551903 | reviewed by: Not reviewed | at: — | notes: —
+Passport,Passport number,P4471902
+Passport,Issue date,22 Aug 2019
+Passport,Expiry date,21 Aug 2029
+Passport,Issuing office,"Regional Passport Office, Gurugram"
+Passport,Status,Active
+Travel,Total trips,11
+Travel,Countries visited,5
+Travel,Average stay,4 days
+Travel,Travel frequency,"≈2.2 trips per year since 2019, 7 to a single destination"
+Travel,Last exit,26 Sept 2024
+Travel,Last entry,30 Sept 2024
+Travel,AI observation,"Travel pattern is inconsistent with declared income. Eleven international trips in five years — seven to the same destination, average stay 4.0 days — against a declared annual income of ₹22,00,000 and no recorded foreign business entity. One departure in September 2024 carries a flagged immigration status."
+Travel Trips,United Arab Emirates · Business,"04 Oct 2019 → 08 Oct 2019 (4 days, Visit (30 days))"
+Travel Trips,United Arab Emirates · Business,"17 Jan 2020 → 20 Jan 2020 (3 days, Visit (30 days))"
+Travel Trips,Singapore · Business,"11 Mar 2022 → 16 Mar 2022 (5 days, Business (30 days))"
+Travel Trips,United Arab Emirates · Business,"29 Jul 2022 → 01 Aug 2022 (3 days, Visit (30 days))"
+Travel Trips,Thailand · Tourism,"18 Nov 2022 → 23 Nov 2022 (5 days, Visa on Arrival)"
+Travel Trips,United Arab Emirates · Business,"09 Feb 2023 → 13 Feb 2023 (4 days, Visit (30 days))"
+Travel Trips,United Arab Emirates · Business,"22 Jun 2023 → 25 Jun 2023 (3 days, Visit (30 days))"
+Travel Trips,Hong Kong SAR · Business,"14 Sept 2023 → 19 Sept 2023 (5 days, Pre-arrival Registration)"
+Travel Trips,United Arab Emirates · Business,"07 Dec 2023 → 11 Dec 2023 (4 days, Visit (30 days))"
+Travel Trips,Singapore · Business,"18 Apr 2024 → 22 Apr 2024 (4 days, Business (30 days))"
+Travel Trips,United Arab Emirates · Business,"26 Sept 2024 → 30 Sept 2024 (4 days, Visit (30 days))"
+Properties,Residential · PROP-77002,"House No. 21, Sector 45, Gurugram · declared ₹1,12,00,000 · current ₹1,55,00,000 · Clear"
+Properties,Commercial · PROP-77890,"Warehouse Unit 7, Sector 68 Industrial Area, Gurugram · declared ₹3,20,00,000 · current ₹3,68,00,000 · Clear"
+Properties,Agricultural Land · PROP-78341,"Khasra No. 112, Pataudi Road, Gurugram District · declared ₹1,80,00,000 · current ₹1,94,00,000 · Under Dispute"
+Properties,Government Lease · PROP-79115,"Transport Yard Plot 4, State Logistics Park, Sector 68 · declared ₹0 · current ₹0 · Clear"
+Employment,Active · Proprietor,Chauhan Freight & Logistics · Logistics · since 01 Apr 2011
+Employment,Former · Fleet Supervisor,Northern Haulage Co. · Logistics · since 10 Feb 2004
+Employment,GST · Active,06VSCPC7710M1ZR · Chauhan Freight & Logistics · last filing 11 Sept 2024
+Employment,GST · Suspended,06VSCPC7710M2ZQ · Pataudi Warehousing Services · last filing 20 Nov 2023
+Employment,Directorship · Active,Chauhan Logistics Holdings Pvt. Ltd. · Managing Director · CIN U63030HR2020PTC088410
+Employment,Directorship · Resigned,Pataudi Coldchain Pvt. Ltd. · Director · CIN U15490HR2022PTC099213
+Benefits,Pradhan Mantri Awas Yojana,Housing · Not Enrolled · eligibility Not Eligible
+Benefits,Ayushman Bharat,Health · Not Enrolled · eligibility Not Eligible
+Benefits,PM Kisan Samman Nidhi,Agriculture · Active · eligibility Under Review
+Benefits,National Pension Scheme,Pension · Not Enrolled · eligibility Eligible
+Benefits,Direct Benefit Transfer (LPG Subsidy),DBT · Inactive · eligibility Not Eligible
+Timeline,19 Jan 2004 · PAN issued,Permanent Account Number allotted. (Income Tax Department)
+Timeline,17 Feb 2005 · Heavy vehicle driving licence issued,HMV driving licence issued by RTA Haryana. (Regional Transport Authority)
+Timeline,01 Apr 2011 · Business registered,Chauhan Freight & Logistics registered as a proprietorship. (Ministry of Corporate Affairs)
+Timeline,01 May 2011 · Transport operator licence issued,"Core operating licence granted, valid to 2024. (Regional Transport Authority)"
+Timeline,20 Jun 2015 · Residential property registered,"Primary residence registered in Sector 45, Gurugram. (Land Records Department)"
+Timeline,19 Mar 2018 · First heavy goods vehicle registered,Fleet vehicle registered to the business. (Transport Department)
+Timeline,22 Aug 2019 · Passport issued,First passport issued by RPO Gurugram. (Regional Passport Office)
+Timeline,04 Oct 2019 · First international travel,Business travel to the United Arab Emirates. (Bureau of Immigration)
+Timeline,14 Aug 2020 · Company directorship recorded,Appointed Managing Director of Chauhan Logistics Holdings Pvt. Ltd. (Ministry of Corporate Affairs)
+Timeline,11 Feb 2021 · Commercial warehouse registered,"Industrial warehouse acquired for ₹3,20,00,000. (Land Records Department)"
+Timeline,31 Jul 2022 · FY2022-23 return not filed,Assessment year return recorded as overdue. (Income Tax Department)
+Timeline,05 Nov 2023 · Agricultural land registered,"Land parcel acquired on Pataudi Road for ₹1,80,00,000. (Land Records Department)"
+Timeline,17 Feb 2024 · Mutation objection filed,Co-sharer objected to mutation; matter pending before the Revenue Court. (Revenue Department)
+Timeline,30 Apr 2024 · Transport operator licence expired,Core operating licence lapsed with no renewal recorded. (Regional Transport Authority)
+Timeline,30 May 2024 · Permit violation challan issued,Fleet vehicle cited for operating without a valid permit; challan unpaid. (Transport Department)
+Timeline,26 Sept 2024 · International departure flagged,Departure to the UAE recorded with a flagged immigration status. (Bureau of Immigration)
+Investigation Notes,—,No records held
+Investigation Tasks,Pending · Reconcile source of funds for 2021 and 2023 acquisitions,"₹5.00 crore of property was acquired against ₹59,30,000 of cumulative declared income, with no sanctioned facility of that size on record."
+Investigation Tasks,Pending · Confirm fleet operation under expired licence,"Operator licence and national permit both expired in 2024, yet a fleet vehicle was challaned for permit violation in May 2024."
+Investigation Tasks,Pending · Request immigration review of flagged departure,The 26 September 2024 departure carries an unresolved flagged status across eleven trips in five years.
+Investigation Tasks,Pending · Close out overdue FY2022-23 filing,"The FY2022-23 return is overdue with nil tax paid, in the year following the largest single asset acquisition."
+Investigation Tasks,Pending · Verify 2023 income certificate,Income certificate issued by the Revenue Department in May 2023 was never verified (31% confidence).
+Investigation Tasks,Pending · Track mutation objection outcome,A co-sharer objection to the Pataudi Road land mutation is pending before the Revenue Court and blocks scheme eligibility.
+Investigation Tasks,Pending · Cross-check GST filings,Pataudi Warehousing Services is suspended with no filing since November 2023 while the warehouse remains registered.

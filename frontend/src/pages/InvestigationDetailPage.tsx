@@ -27,6 +27,7 @@ import { StatusSelect } from "@/components/investigations/StatusSelect";
 import { NotesPanel } from "@/components/investigations/NotesPanel";
 import { TaskList } from "@/components/investigations/TaskList";
 import { CaseActivityTimeline } from "@/components/investigations/CaseActivityTimeline";
+import { LegalRecordsPanel } from "@/components/legal/LegalRecordsPanel";
 import { formatDate, formatDateTime, formatPercent } from "@/lib/format";
 
 const LOAD_DELAY_MS = 260;
@@ -287,6 +288,8 @@ export function InvestigationDetailPage() {
               </div>
             </>
           )}
+
+          {citizen && <LegalRecordsPanel citizen={citizen} />}
 
           <TaskList investigation={investigation} evidence={evidence} />
 
