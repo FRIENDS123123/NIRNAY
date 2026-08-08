@@ -6,6 +6,7 @@ import { EvidenceProvider } from "@/components/evidence/EvidenceProvider";
 import { ProfileHeader } from "@/components/citizen/ProfileHeader";
 import { AISummaryPanel } from "@/components/citizen/AISummaryPanel";
 import { ProfileSections } from "@/components/citizen/ProfileSections";
+import { StartInvestigationButton } from "@/components/citizen/StartInvestigationButton";
 import { CitizenTimeline } from "@/components/citizen/CitizenTimeline";
 import { ProfileSkeleton } from "@/components/ui/Skeleton";
 import { EmptyState } from "@/components/ui/EmptyState";
@@ -40,12 +41,16 @@ export function CitizenProfilePage() {
 
   return (
     <div className="mx-auto max-w-4xl px-6 py-8">
-      <Link
-        to="/search"
-        className="mb-4 inline-flex items-center gap-1.5 rounded text-sm font-medium text-ink-500 transition-colors hover:text-ink-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400"
-      >
-        <ArrowLeft size={15} aria-hidden="true" /> Back to search
-      </Link>
+      <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+        <Link
+          to="/search"
+          className="inline-flex items-center gap-1.5 rounded text-sm font-medium text-ink-500 transition-colors hover:text-ink-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400"
+        >
+          <ArrowLeft size={15} aria-hidden="true" /> Back to search
+        </Link>
+
+        {!correlating && <StartInvestigationButton citizen={citizen} />}
+      </div>
 
       {correlating ? (
         <>

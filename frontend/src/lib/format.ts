@@ -40,6 +40,37 @@ export function formatPercent(value: number): string {
   return `${Math.round(value * 100)}%`;
 }
 
+const dateTimeFormatter = new Intl.DateTimeFormat("en-IN", {
+  day: "2-digit",
+  month: "short",
+  year: "numeric",
+  hour: "2-digit",
+  minute: "2-digit",
+});
+
+/** ISO timestamp → "19 Jul 2024, 02:31 pm". Used for case and note stamps. */
+export function formatDateTime(iso: string): string {
+  const parsed = new Date(iso);
+  if (Number.isNaN(parsed.getTime())) return iso;
+  return dateTimeFormatter.format(parsed);
+}
+
+/** Coarse relative age for recently touched case records. */
+export function formatRelative(iso: string): string {
+  const parsed = new Date(iso);
+  if (Number.isNaN(parsed.getTime())) return iso;
+
+  const seconds = Math.round((Date.now() - parsed.getTime()) / 1000);
+  if (seconds < 60) return "just now";
+  const minutes = Math.round(seconds / 60);
+  if (minutes < 60) return `${minutes} min ago`;
+  const hours = Math.round(minutes / 60);
+  if (hours < 24) return `${hours} hr ago`;
+  const days = Math.round(hours / 24);
+  if (days < 30) return `${days} day${days === 1 ? "" : "s"} ago`;
+  return formatDate(iso);
+}
+
 export function yearOf(iso: string): string {
   return iso.slice(0, 4);
 }

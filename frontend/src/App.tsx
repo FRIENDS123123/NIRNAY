@@ -14,6 +14,9 @@ const CitizenProfilePage = lazy(() =>
 const InvestigationsPage = lazy(() =>
   import("@/pages/InvestigationsPage").then((m) => ({ default: m.InvestigationsPage })),
 );
+const InvestigationDetailPage = lazy(() =>
+  import("@/pages/InvestigationDetailPage").then((m) => ({ default: m.InvestigationDetailPage })),
+);
 const ReportsPage = lazy(() => import("@/pages/ReportsPage").then((m) => ({ default: m.ReportsPage })));
 const SettingsPage = lazy(() => import("@/pages/SettingsPage").then((m) => ({ default: m.SettingsPage })));
 
@@ -35,6 +38,7 @@ export default function App() {
             <Route path="/search" element={<SearchPage />} />
             <Route path="/citizens/:citizenId" element={<CitizenProfilePage />} />
             <Route path="/investigations" element={<InvestigationsPage />} />
+            <Route path="/investigations/:investigationId" element={<InvestigationDetailPage />} />
             <Route path="/reports" element={<ReportsPage />} />
             <Route path="/settings" element={<SettingsPage />} />
           </Routes>
