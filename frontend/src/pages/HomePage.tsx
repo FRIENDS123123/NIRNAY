@@ -8,6 +8,8 @@ import { citizens } from "@/mock-data/citizens";
 const quickAccess = citizens.map((c) => ({
   id: c.citizenId,
   name: c.identity.fullName,
+  initials: c.identity.photoInitials,
+  city: c.addressIntel.current.city,
   risk: c.aiSummary.riskLevel,
 }));
 
@@ -44,27 +46,55 @@ export function HomePage() {
           <SearchBar size="hero" />
         </div>
 
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-2 text-xs text-ink-400">
-          <span>Try a synthetic profile:</span>
-          {quickAccess.map((c) => (
-            <Link
-              key={c.id}
-              to={`/citizens/${c.id}`}
-              className="group inline-flex items-center gap-1.5 rounded-full border border-ink-200 bg-surface px-2.5 py-1 font-medium text-ink-600 transition-colors hover:border-primary-300 hover:text-primary-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400"
-            >
-              <span
-                aria-hidden="true"
-                className={`h-1.5 w-1.5 rounded-full ${riskDotClasses[c.risk]}`}
-              />
-              {c.name}
-              <ArrowRight
-                size={11}
-                strokeWidth={2.5}
-                aria-hidden="true"
-                className="text-ink-300 transition-transform group-hover:translate-x-0.5"
-              />
-            </Link>
-          ))}
+        <div className="mt-11 w-full">
+          <p className="text-sm text-ink-500">
+            Search by name, Aadhaar, PAN, passport, driving licence, phone or Citizen ID — or
+            open one of the demo records below to see a full profile straight away.
+          </p>
+
+          <div className="mt-3.5 grid gap-2.5">
+            {quickAccess.map((c, i) => (
+              <motion.div
+                key={c.id}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 0.15 + i * 0.06 }}
+              >
+                <Link
+                  to={`/citizens/${c.id}`}
+                  className="group flex h-full items-center gap-3 rounded-2xl border border-ink-200 bg-surface p-3.5 text-left shadow-[var(--shadow-card)] transition-all hover:-translate-y-0.5 hover:border-primary-300 hover:shadow-[var(--shadow-card-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400"
+                >
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary-600 to-accent-500 text-xs font-bold text-white">
+                    {c.initials}
+                  </span>
+
+                  <span className="min-w-0 flex-1">
+                    <span className="block truncate text-sm font-semibold text-ink-900">
+                      {c.name}
+                    </span>
+                    <span className="mt-0.5 flex items-center gap-1.5 text-[11px] text-ink-400">
+                      <span
+                        aria-hidden="true"
+                        className={`h-1.5 w-1.5 rounded-full ${riskDotClasses[c.risk]}`}
+                      />
+                      {c.risk} risk · {c.city}
+                    </span>
+                  </span>
+
+                  <ArrowRight
+                    size={14}
+                    strokeWidth={2.5}
+                    aria-hidden="true"
+                    className="shrink-0 text-ink-300 transition-transform group-hover:translate-x-0.5 group-hover:text-primary-600"
+                  />
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+
+          <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.14em] text-ink-400">
+            Demo records · fully synthetic
+          </p>
         </div>
       </motion.div>
     </div>

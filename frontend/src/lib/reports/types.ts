@@ -49,6 +49,13 @@ export interface ReportNarrative {
 }
 
 /** Everything a rendered report contains, in render order. */
+/**
+ * Who the report is written for. A citizen copy carries the citizen's own
+ * records only — risk scoring, AI analysis, evidence and reviewer commentary
+ * are officer-internal and are removed before rendering.
+ */
+export type ReportAudience = "Officer" | "Citizen";
+
 export interface ReportDocument {
   meta: {
     reportId: string;
@@ -57,6 +64,7 @@ export interface ReportDocument {
     officer: string;
     department: string;
     role: string;
+    audience: ReportAudience;
   };
   citizen: {
     citizenId: string;
@@ -113,6 +121,7 @@ export interface SavedReport {
   riskScore: number;
   officer: string;
   generatedAt: string;
+  audience: ReportAudience;
   exports: ExportEvent[];
   document: ReportDocument;
 }

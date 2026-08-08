@@ -356,6 +356,41 @@ export const vikramSinghChauhan: Citizen = {
     { id: "LIC-51005", type: "Warehousing Operator Registration", category: "Business", licenceNumber: "REV/HR/WH/2021/7789", issuingAuthority: "Revenue Department", issueDate: "2021-03-08", expiryDate: "2026-03-07", status: "Active" },
   ],
 
+  civic: {
+    education: [
+      { id: "EDU-1", qualification: "B.Com — Commerce", institution: "Dyal Singh College", board: "University of Delhi", year: "2001", status: "Verified" },
+      { id: "EDU-2", qualification: "Higher Secondary Certificate", institution: "Government Senior Secondary School, Pataudi", board: "Haryana Board of School Education", year: "1997", status: "Self-declared" },
+    ],
+    telecom: [
+      { id: "TEL-1", operator: "Northern Telecom", maskedNumber: "+91 99XXX XX108", type: "Postpaid", activeSince: "2009-06-18", status: "Active" },
+      { id: "TEL-2", operator: "Northern Telecom", maskedNumber: "+91 99XXX XX771", type: "Prepaid", activeSince: "2018-11-02", status: "Active" },
+      { id: "TEL-3", operator: "Capital Connect", maskedNumber: "+91 88XXX XX204", type: "Prepaid", activeSince: "2021-02-14", status: "Disconnected" },
+    ],
+    utilities: [
+      { id: "UTL-1", utility: "Electricity", provider: "Dakshin Haryana Bijli Vitran Nigam", consumerNumber: "DHBVN-7710-2201", address: "House No. 21, Sector 45, Gurugram", status: "Active" },
+      { id: "UTL-2", utility: "Electricity", provider: "Dakshin Haryana Bijli Vitran Nigam", consumerNumber: "DHBVN-IND-6889", address: "Warehouse Unit 7, Sector 68 Industrial Area", status: "Active" },
+      { id: "UTL-3", utility: "Water", provider: "Gurugram Metropolitan Development Authority", consumerNumber: "GMDA-W-77002", address: "House No. 21, Sector 45, Gurugram", status: "Active" },
+    ],
+    digitalLocker: [
+      { id: "DGL-1", document: "Business Registration Certificate", issuer: "Ministry of Corporate Affairs", issuedOn: "2011-04-01", format: "PDF" },
+      { id: "DGL-2", document: "Heavy Vehicle Driving Licence", issuer: "Regional Transport Authority", issuedOn: "2005-02-17", format: "XML" },
+      { id: "DGL-3", document: "Warehouse Lease Deed", issuer: "Revenue Department", issuedOn: "2019-04-18", format: "PDF" },
+    ],
+    elections: [
+      { id: "ELE-1", election: "General Election", year: "2024", constituency: "Gurgaon", participated: true },
+      { id: "ELE-2", election: "State Assembly Election", year: "2019", constituency: "Pataudi", participated: false },
+    ],
+    criminalClearance: {
+      certificateNumber: "PCC/GGN/2024/77102",
+      issuingAuthority: "Commissioner of Police, Gurugram",
+      issuedOn: "2024-06-19",
+      validTill: "2026-06-18",
+      result: "Pending",
+      remarks:
+        "Clearance withheld pending outcome of the revenue court objection and the transport enforcement query.",
+    },
+  },
+
   timeline: [
     { date: "2004-01-19", title: "PAN issued", description: "Permanent Account Number allotted.", department: "Income Tax Department", category: "Identity", evidenceIds: ["EV-ID-01"] },
     { date: "2005-02-17", title: "Heavy vehicle driving licence issued", description: "HMV driving licence issued by RTA Haryana.", department: "Regional Transport Authority", category: "Licence", evidenceIds: ["EV-RTA-02"] },

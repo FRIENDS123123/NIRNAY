@@ -54,7 +54,14 @@ function groupByYear(events: TimelineEvent[]): { year: string; events: TimelineE
  * Chronological trail of every recorded departmental event. Reads oldest to
  * newest so the citizen's history builds up the way an officer would narrate it.
  */
-export function CitizenTimeline({ citizen }: { citizen: Citizen }) {
+export function CitizenTimeline({
+  citizen,
+  showEvidence = true,
+}: {
+  citizen: Citizen;
+  /** Evidence citations are officer-internal; the citizen portal hides them. */
+  showEvidence?: boolean;
+}) {
   const groups = groupByYear(citizen.timeline);
 
   return (
@@ -132,11 +139,13 @@ export function CitizenTimeline({ citizen }: { citizen: Citizen }) {
                             <span className="font-mono text-[10px] uppercase tracking-wide text-ink-400">
                               {event.department}
                             </span>
-                            <EvidenceRefs
-                              ids={event.evidenceIds}
-                              context={event.title}
-                              evidence={citizen.evidence}
-                            />
+                            {showEvidence && (
+                              <EvidenceRefs
+                                ids={event.evidenceIds}
+                                context={event.title}
+                                evidence={citizen.evidence}
+                              />
+                            )}
                           </div>
                         </div>
                       </div>

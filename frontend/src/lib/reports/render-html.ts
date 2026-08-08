@@ -54,6 +54,8 @@ const STATUS_CLASS: Record<string, string> = {
 
 export function renderReportHtml(doc: ReportDocument): string {
   const { meta, citizen, investigation, risk, aiSummary } = doc;
+  // A citizen copy carries the citizen's own records only.
+  const officerCopy = meta.audience !== "Citizen";
 
   const evidenceTable = doc.evidence.length
     ? `<table class="grid">
@@ -69,11 +71,17 @@ export function renderReportHtml(doc: ReportDocument): string {
 
   const verificationTable = doc.verification.length
     ? `<table class="grid">
-        <thead><tr><th>Record</th><th>Category</th><th>Department</th><th>Status</th><th>Reviewed by</th><th>Reviewer notes</th></tr></thead>
+        <thead><tr><th>Record</th><th>Category</th><th>Department</th><th>Status</th>${
+          officerCopy ? "<th>Reviewed by</th><th>Reviewer notes</th>" : ""
+        }</tr></thead>
         <tbody>${doc.verification
           .map(
             (v) =>
-              `<tr><td>${escapeHtml(v.title)}</td><td>${escapeHtml(v.category)}</td><td>${escapeHtml(v.department)}</td><td><span class="pill ${STATUS_CLASS[v.status] ?? "info"}">${escapeHtml(v.status)}</span></td><td>${escapeHtml(v.reviewedBy)}<br><span class="muted">${escapeHtml(v.reviewedAt)}</span></td><td>${escapeHtml(v.reviewerNotes)}</td></tr>`,
+              `<tr><td>${escapeHtml(v.title)}</td><td>${escapeHtml(v.category)}</td><td>${escapeHtml(v.department)}</td><td><span class="pill ${STATUS_CLASS[v.status] ?? "info"}">${escapeHtml(v.status)}</span></td>${
+                officerCopy
+                  ? `<td>${escapeHtml(v.reviewedBy)}<br><span class="muted">${escapeHtml(v.reviewedAt)}</span></td><td>${escapeHtml(v.reviewerNotes)}</td>`
+                  : ""
+              }</tr>`,
           )
           .join("")}</tbody>
        </table>`
@@ -178,8 +186,11 @@ export function renderReportHtml(doc: ReportDocument): string {
     <div class="meta">
       <strong>${escapeHtml(meta.reportId)}</strong>
       Generated ${escapeHtml(formatDateTime(meta.generatedAt))}<br>
-      ${escapeHtml(meta.officer)} · ${escapeHtml(meta.department)}<br>
-      Role: ${escapeHtml(meta.role)}
+      ${
+        officerCopy
+          ? `${escapeHtml(meta.officer)} · ${escapeHtml(meta.department)}<br>Role: ${escapeHtml(meta.role)}`
+          : "Citizen copy · personal record statement"
+      }
     </div>
   </header>
 
@@ -191,44 +202,67 @@ export function renderReportHtml(doc: ReportDocument): string {
   <div class="summary-strip">
     <div class="stat"><span>Citizen</span><strong>${escapeHtml(citizen.name)}</strong></div>
     <div class="stat"><span>Citizen ID</span><strong>${escapeHtml(citizen.citizenId)}</strong></div>
-    <div class="stat"><span>Risk score</span><strong>${risk.score}/100 · ${escapeHtml(risk.level)}</strong></div>
-    <div class="stat"><span>Case status</span><strong>${escapeHtml(investigation?.status ?? "No linked case")}</strong></div>
-    <div class="stat"><span>AI confidence</span><strong>${escapeHtml(risk.aiConfidence)}</strong></div>
+    ${
+      officerCopy
+        ? `<div class="stat"><span>Risk score</span><strong>${risk.score}/100 · ${escapeHtml(risk.level)}</strong></div>
+           <div class="stat"><span>Case status</span><strong>${escapeHtml(investigation?.status ?? "No linked case")}</strong></div>
+           <div class="stat"><span>AI confidence</span><strong>${escapeHtml(risk.aiConfidence)}</strong></div>`
+        : `<div class="stat"><span>Records verified</span><strong>${doc.verification.filter((v) => v.status === "Verified").length} of ${doc.verification.length}</strong></div>
+           <div class="stat"><span>Issued to</span><strong>The citizen named above</strong></div>`
+    }
   </div>
 
-  ${section("Executive Summary", `<p class="lede">${escapeHtml(aiSummary.executive)}</p>`)}
+  ${
+    officerCopy
+      ? section("Executive Summary", `<p class="lede">${escapeHtml(aiSummary.executive)}</p>`)
+      : section(
+          "About this statement",
+          `<p class="lede">This is a personal record statement listing the government records held against your Citizen ID and their current verification status. It contains no internal assessment, scoring or case information.</p>`,
+        )
+  }
 
   ${section("Citizen Identity", fieldTable(citizen.identity) + `<p class="muted" style="margin-top:8px">Registered address: ${escapeHtml(citizen.address)}</p>`)}
 
-  ${section(
-    "Investigation Summary",
-    investigation
-      ? fieldTable([
-          { label: "Investigation ID", value: investigation.id },
-          { label: "Case status", value: investigation.status },
-          { label: "Priority", value: investigation.priority },
-          { label: "Assigned officer", value: investigation.officer },
-          { label: "Opened", value: investigation.createdAt },
-          { label: "Last updated", value: investigation.updatedAt },
-          { label: "Reason", value: investigation.reason },
-        ])
-      : `<p class="empty">This report is not linked to an investigation case.</p>`,
-  )}
+  ${
+    officerCopy
+      ? section(
+          "Investigation Summary",
+          investigation
+            ? fieldTable([
+                { label: "Investigation ID", value: investigation.id },
+                { label: "Case status", value: investigation.status },
+                { label: "Priority", value: investigation.priority },
+                { label: "Assigned officer", value: investigation.officer },
+                { label: "Opened", value: investigation.createdAt },
+                { label: "Last updated", value: investigation.updatedAt },
+                { label: "Reason", value: investigation.reason },
+              ])
+            : `<p class="empty">This report is not linked to an investigation case.</p>`,
+        )
+      : ""
+  }
 
-  ${section(
-    "Risk Assessment",
-    fieldTable([
-      { label: "Risk level", value: risk.level },
-      { label: "Risk score", value: `${risk.score} / 100` },
-      { label: "Citizen status", value: risk.citizenStatus },
-      { label: "AI confidence", value: risk.aiConfidence },
-    ]) + narrativeList(risk.rationale),
-  )}
+  ${
+    officerCopy
+      ? section(
+          "Risk Assessment",
+          fieldTable([
+            { label: "Risk level", value: risk.level },
+            { label: "Risk score", value: `${risk.score} / 100` },
+            { label: "Citizen status", value: risk.citizenStatus },
+            { label: "AI confidence", value: risk.aiConfidence },
+          ]) + narrativeList(risk.rationale),
+        )
+      : ""
+  }
 
-  ${section("AI Summary — Domain Analysis", narrativeList(aiSummary.domains))}
-  ${section("Recommendations", narrativeList(doc.recommendations))}
-  ${section("Verification Status & Reviewer Notes", verificationTable)}
-  ${section("Evidence References", evidenceTable)}
+  ${officerCopy ? section("AI Summary — Domain Analysis", narrativeList(aiSummary.domains)) : ""}
+  ${officerCopy ? section("Recommendations", narrativeList(doc.recommendations)) : ""}
+  ${section(
+    officerCopy ? "Verification Status & Reviewer Notes" : "Verification Status",
+    verificationTable,
+  )}
+  ${officerCopy ? section("Evidence References", evidenceTable) : ""}
   ${section("Passport", fieldTable(doc.passport))}
   ${section(
     "International Travel",

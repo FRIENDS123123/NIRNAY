@@ -382,6 +382,42 @@ export const ananyaRaoDeshmukh: Citizen = {
     { id: "LIC-40093", type: "Certified Product Manager (Professional)", category: "Professional", licenceNumber: "CPM-IN-2019-3341", issuingAuthority: "Employment Records", issueDate: "2019-09-01", expiryDate: "2027-08-31", status: "Active" },
   ],
 
+  civic: {
+    education: [
+      { id: "EDU-1", qualification: "MBA — Operations", institution: "Symbiosis Institute of Business Management", board: "Symbiosis International University", year: "2013", status: "Verified" },
+      { id: "EDU-2", qualification: "B.E. — Computer Engineering", institution: "Government College of Engineering", board: "Nagpur University", year: "2010", status: "Verified" },
+      { id: "EDU-3", qualification: "Higher Secondary Certificate", institution: "Bhavan's Junior College, Nagpur", board: "Maharashtra State Board", year: "2006", status: "Verified" },
+    ],
+    telecom: [
+      { id: "TEL-1", operator: "Bharat Mobile", maskedNumber: "+91 98XXX XX341", type: "Postpaid", activeSince: "2011-03-04", status: "Active" },
+      { id: "TEL-2", operator: "Deccan Fibre", maskedNumber: "PUN-BB-448210", type: "Broadband", activeSince: "2019-01-22", status: "Active" },
+    ],
+    utilities: [
+      { id: "UTL-1", utility: "Electricity", provider: "Maharashtra State Electricity Board", consumerNumber: "MSEB-4471-0092", address: "Flat 12B, Silver Oak Residency, Pune", status: "Active" },
+      { id: "UTL-2", utility: "Piped Gas", provider: "Pune City Gas", consumerNumber: "PCG-88213", address: "Flat 12B, Silver Oak Residency, Pune", status: "Active" },
+      { id: "UTL-3", utility: "Municipal Tax", provider: "Pune Municipal Corporation", consumerNumber: "PMC-PT-448210", address: "Flat 12B, Silver Oak Residency, Pune", status: "Active" },
+    ],
+    digitalLocker: [
+      { id: "DGL-1", document: "Class XII Marksheet", issuer: "Maharashtra State Board", issuedOn: "2006-06-12", format: "PDF" },
+      { id: "DGL-2", document: "Degree Certificate", issuer: "Nagpur University", issuedOn: "2010-08-30", format: "PDF" },
+      { id: "DGL-3", document: "Driving Licence", issuer: "Regional Transport Office, Pune", issuedOn: "2014-01-09", format: "XML" },
+      { id: "DGL-4", document: "Vehicle Registration (MH12 GT 4471)", issuer: "Transport Department", issuedOn: "2020-02-14", format: "XML" },
+    ],
+    elections: [
+      { id: "ELE-1", election: "General Election", year: "2024", constituency: "Pune", participated: true },
+      { id: "ELE-2", election: "State Assembly Election", year: "2019", constituency: "Kothrud", participated: true },
+      { id: "ELE-3", election: "Municipal Election", year: "2017", constituency: "Ward 8, Pune", participated: false },
+    ],
+    criminalClearance: {
+      certificateNumber: "PCC/PUN/2024/44821",
+      issuingAuthority: "Commissioner of Police, Pune",
+      issuedOn: "2024-02-06",
+      validTill: "2026-02-05",
+      result: "No Adverse Record",
+      remarks: "No case, conviction or pending proceeding recorded against this citizen.",
+    },
+  },
+
   timeline: [
     { date: "2009-02-17", title: "PAN issued", description: "Permanent Account Number allotted by the Income Tax Department.", department: "Income Tax Department", category: "Identity", evidenceIds: ["EV-ID-01"] },
     { date: "2011-06-22", title: "Aadhaar enrolment completed", description: "Biometric identity record created and verified.", department: "Identity Authority", category: "Identity", evidenceIds: ["EV-ID-01"] },

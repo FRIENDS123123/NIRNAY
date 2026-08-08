@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { FileCode2, FileSpreadsheet, Printer } from "lucide-react";
 import type { ExportFormat, SavedReport } from "@/lib/reports/types";
-import { exportReportAs } from "@/lib/reports/export";
+import { exportReportAs, reportFilename } from "@/lib/reports/export";
 import { recordExport } from "@/lib/reports/store";
+import { toast } from "@/lib/toast";
 import { cn } from "@/lib/cn";
 
 const config: { format: ExportFormat; label: string; icon: typeof Printer; hint: string }[] = [
@@ -25,7 +26,23 @@ export function ExportButtons({
   function handleExport(format: ExportFormat) {
     setBusy(format);
     const ok = exportReportAs(report, format);
-    if (ok) recordExport(report.id, format);
+    if (ok) {
+      recordExport(report.id, format);
+      toast({
+        title: format === "PDF" ? "Opening print dialog" : `${format} downloaded`,
+        description:
+          format === "PDF"
+            ? `Choose “Save as PDF” to store ${report.id}.`
+            : `${reportFilename(report, format.toLowerCase())} saved to your downloads.`,
+        tone: format === "PDF" ? "info" : "success",
+      });
+    } else {
+      toast({
+        title: "Export could not start",
+        description: "The browser blocked the export. Try again or use a different format.",
+        tone: "danger",
+      });
+    }
     setTimeout(() => setBusy(null), 700);
   }
 

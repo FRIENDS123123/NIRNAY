@@ -21,11 +21,13 @@ function fromRows(section: string, rows: ReportFieldRow[]): string[] {
 
 export function renderReportCsv(doc: ReportDocument): string {
   const { meta, citizen, investigation, risk, aiSummary } = doc;
+  const officerCopy = meta.audience !== "Citizen";
   const lines: string[] = ["Section,Field,Value"];
 
   lines.push(
     line("Report", "Report ID", meta.reportId),
     line("Report", "Title", meta.title),
+    line("Report", "Audience", meta.audience),
     line("Report", "Generated at", formatDateTime(meta.generatedAt)),
     line("Report", "Officer", meta.officer),
     line("Report", "Department", meta.department),
@@ -36,7 +38,7 @@ export function renderReportCsv(doc: ReportDocument): string {
   lines.push(...fromRows("Citizen Identity", citizen.identity));
   lines.push(line("Citizen Identity", "Registered address", citizen.address));
 
-  if (investigation) {
+  if (officerCopy && investigation) {
     lines.push(
       line("Investigation", "Investigation ID", investigation.id),
       line("Investigation", "Case status", investigation.status),
@@ -46,45 +48,53 @@ export function renderReportCsv(doc: ReportDocument): string {
       line("Investigation", "Last updated", investigation.updatedAt),
       line("Investigation", "Reason", investigation.reason),
     );
-  } else {
+  } else if (officerCopy) {
     lines.push(line("Investigation", "Linked case", "None"));
   }
 
-  lines.push(
-    line("Risk", "Risk level", risk.level),
-    line("Risk", "Risk score", `${risk.score}/100`),
-    line("Risk", "Citizen status", risk.citizenStatus),
-    line("Risk", "AI confidence", risk.aiConfidence),
-  );
-  risk.rationale.forEach((item, i) =>
-    lines.push(line("Risk", `Rationale ${i + 1}`, `${item.body} [evidence: ${item.evidence.join(" ")}]`)),
-  );
-
-  lines.push(line("AI Summary", "Executive summary", aiSummary.executive));
-  aiSummary.domains.forEach((domain) =>
-    lines.push(line("AI Summary", domain.title, `${domain.body} [evidence: ${domain.evidence.join(" ")}]`)),
-  );
-
-  doc.recommendations.forEach((rec) =>
-    lines.push(line("Recommendations", rec.title, `${rec.body} [evidence: ${rec.evidence.join(" ")}]`)),
-  );
-
-  doc.evidence.forEach((item) =>
+  if (officerCopy) {
     lines.push(
-      line(
-        "Evidence",
-        item.id,
-        `${item.label} | dept: ${item.department} | ref: ${item.reference} | confidence: ${item.confidence} | ${item.verification} | linked: ${item.linkedRecord}`,
+      line("Risk", "Risk level", risk.level),
+      line("Risk", "Risk score", `${risk.score}/100`),
+      line("Risk", "Citizen status", risk.citizenStatus),
+      line("Risk", "AI confidence", risk.aiConfidence),
+    );
+    risk.rationale.forEach((item, i) =>
+      lines.push(
+        line("Risk", `Rationale ${i + 1}`, `${item.body} [evidence: ${item.evidence.join(" ")}]`),
       ),
-    ),
-  );
+    );
+
+    lines.push(line("AI Summary", "Executive summary", aiSummary.executive));
+    aiSummary.domains.forEach((domain) =>
+      lines.push(
+        line("AI Summary", domain.title, `${domain.body} [evidence: ${domain.evidence.join(" ")}]`),
+      ),
+    );
+
+    doc.recommendations.forEach((rec) =>
+      lines.push(line("Recommendations", rec.title, `${rec.body} [evidence: ${rec.evidence.join(" ")}]`)),
+    );
+
+    doc.evidence.forEach((item) =>
+      lines.push(
+        line(
+          "Evidence",
+          item.id,
+          `${item.label} | dept: ${item.department} | ref: ${item.reference} | confidence: ${item.confidence} | ${item.verification} | linked: ${item.linkedRecord}`,
+        ),
+      ),
+    );
+  }
 
   doc.verification.forEach((item) =>
     lines.push(
       line(
         "Verification",
         item.title,
-        `status: ${item.status} | category: ${item.category} | dept: ${item.department} | ref: ${item.reference} | reviewed by: ${item.reviewedBy} | at: ${item.reviewedAt} | notes: ${item.reviewerNotes}`,
+        officerCopy
+          ? `status: ${item.status} | category: ${item.category} | dept: ${item.department} | ref: ${item.reference} | reviewed by: ${item.reviewedBy} | at: ${item.reviewedAt} | notes: ${item.reviewerNotes}`
+          : `status: ${item.status} | category: ${item.category} | dept: ${item.department} | ref: ${item.reference}`,
       ),
     ),
   );
@@ -98,7 +108,7 @@ export function renderReportCsv(doc: ReportDocument): string {
   lines.push(...fromRows("Benefits", doc.benefits));
   lines.push(...fromRows("Timeline", doc.timeline));
 
-  if (investigation) {
+  if (officerCopy && investigation) {
     lines.push(...fromRows("Investigation Notes", doc.caseNotes));
     lines.push(...fromRows("Investigation Tasks", doc.caseTasks));
   }

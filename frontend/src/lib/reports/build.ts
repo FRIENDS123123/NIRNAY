@@ -5,7 +5,7 @@ import type { Citizen } from "@/mock-data/types";
 import type { Investigation } from "@/lib/investigations/types";
 import type { ResolvedLegalRecord } from "@/lib/legal-records/types";
 import { formatCurrency, formatDate, formatDateTime, formatPercent } from "@/lib/format";
-import type { ReportDocument, ReportFieldRow } from "./types";
+import type { ReportAudience, ReportDocument, ReportFieldRow } from "./types";
 
 function row(label: string, value: string | number | undefined | null): ReportFieldRow {
   return { label, value: value === undefined || value === null || value === "" ? "—" : String(value) };
@@ -19,6 +19,31 @@ export interface BuildReportInput {
   officer: string;
   department: string;
   role: string;
+  audience?: ReportAudience;
+}
+
+/**
+ * Removes everything officer-internal from a report so it can be handed to the
+ * citizen it describes. Applied after assembly rather than by branching the
+ * builder, so both audiences are guaranteed to come from the same source.
+ */
+function redactForCitizen(doc: ReportDocument): ReportDocument {
+  return {
+    ...doc,
+    investigation: null,
+    risk: { ...doc.risk, rationale: [] },
+    aiSummary: { executive: "", domains: [] },
+    recommendations: [],
+    evidence: [],
+    verification: doc.verification.map((row) => ({
+      ...row,
+      reviewerNotes: "—",
+      reviewedBy: "—",
+      reviewedAt: "—",
+    })),
+    caseNotes: [],
+    caseTasks: [],
+  };
 }
 
 export function buildReportDocument({
@@ -29,17 +54,22 @@ export function buildReportDocument({
   officer,
   department,
   role,
+  audience = "Officer",
 }: BuildReportInput): ReportDocument {
   const { identity, aiSummary, travel, addressIntel } = citizen;
 
-  return {
+  const document: ReportDocument = {
     meta: {
       reportId,
-      title: `Citizen Intelligence Report — ${identity.fullName}`,
+      title:
+        audience === "Citizen"
+          ? `Citizen Record Statement — ${identity.fullName}`
+          : `Citizen Intelligence Report — ${identity.fullName}`,
       generatedAt: new Date().toISOString(),
       officer,
       department,
       role,
+      audience,
     },
 
     citizen: {
@@ -189,4 +219,6 @@ export function buildReportDocument({
       ? investigation.tasks.map((task) => row(`${task.status} · ${task.title}`, task.detail))
       : [],
   };
+
+  return audience === "Citizen" ? redactForCitizen(document) : document;
 }

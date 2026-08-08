@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Download, FileSearch, History, Search } from "lucide-react";
+import { Clock, Download, FileSearch, History, Search } from "lucide-react";
 import type { RiskLevel } from "@/mock-data/types";
 import { useExportHistory, useReports } from "@/lib/reports/store";
 import { EmptyState } from "@/components/ui/EmptyState";
@@ -10,7 +10,7 @@ import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { GenerateReportPanel } from "@/components/reports/GenerateReportPanel";
 import { ReportCard } from "@/components/reports/ReportCard";
-import { formatDateTime } from "@/lib/format";
+import { formatDateTime, formatRelative } from "@/lib/format";
 import { cn } from "@/lib/cn";
 
 type RiskFilter = "All" | RiskLevel;
@@ -25,6 +25,12 @@ export function ReportsPage() {
   const [query, setQuery] = useState("");
   const [risk, setRisk] = useState<RiskFilter>("All");
   const [loading, setLoading] = useState(true);
+
+  const officerCopies = reports.filter((r) => r.audience !== "Citizen").length;
+  const lastGenerated = reports.reduce(
+    (latest, r) => (r.generatedAt > latest ? r.generatedAt : latest),
+    reports[0]?.generatedAt ?? "",
+  );
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), LOAD_DELAY_MS);
@@ -54,6 +60,27 @@ export function ReportsPage() {
           Intelligence reporting centre. Reports snapshot the record at generation time and
           export locally as PDF, HTML or CSV.
         </p>
+
+        {reports.length > 0 && (
+          <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-1.5 text-xs text-ink-500">
+            <span>
+              <span className="font-semibold text-ink-900">{reports.length}</span> saved
+            </span>
+            <span>
+              <span className="font-semibold text-ink-900">{officerCopies}</span> officer ·{" "}
+              <span className="font-semibold text-ink-900">{reports.length - officerCopies}</span>{" "}
+              citizen
+            </span>
+            <span className="flex items-center gap-1.5">
+              <Clock size={12} strokeWidth={2.25} aria-hidden="true" />
+              Last generated {formatRelative(lastGenerated)}
+            </span>
+            <span className="flex items-center gap-1.5">
+              <Download size={12} strokeWidth={2.25} aria-hidden="true" />
+              {history.length} download{history.length === 1 ? "" : "s"}
+            </span>
+          </div>
+        )}
       </header>
 
       <div className="mt-6">
@@ -145,9 +172,9 @@ export function ReportsPage() {
                 <History size={18} aria-hidden="true" />
               </span>
               <div>
-                <h2 className="font-semibold text-ink-900">Export History</h2>
+                <h2 className="font-semibold text-ink-900">Recent Downloads</h2>
                 <p className="text-sm text-ink-500">
-                  Every download taken from this browser, newest first
+                  Export history for this browser — report, format and time, newest first
                 </p>
               </div>
             </div>

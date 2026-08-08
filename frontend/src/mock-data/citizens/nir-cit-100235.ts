@@ -174,6 +174,36 @@ export const rajeshDeshmukh: Citizen = {
     { id: "LIC-42200", type: "Driving Licence (LMV)", category: "Driving", licenceNumber: "MH12 20080011209", issuingAuthority: "Regional Transport Office, Pune", issueDate: "2008-06-14", expiryDate: "2028-06-13", status: "Active" },
   ],
 
+  civic: {
+    education: [
+      { id: "EDU-1", qualification: "B.E. — Civil Engineering", institution: "Government College of Engineering, Karad", board: "Shivaji University", year: "2005", status: "Verified" },
+      { id: "EDU-2", qualification: "Higher Secondary Certificate", institution: "Tilak High School, Karad", board: "Maharashtra State Board", year: "2000", status: "Verified" },
+    ],
+    telecom: [
+      { id: "TEL-1", operator: "Bharat Mobile", maskedNumber: "+91 98XXX XX902", type: "Postpaid", activeSince: "2010-07-19", status: "Active" },
+    ],
+    utilities: [
+      { id: "UTL-1", utility: "Electricity", provider: "Maharashtra State Electricity Board", consumerNumber: "MSEB-3390-0448", address: "Flat 12B, Silver Oak Residency, Pune", status: "Active" },
+      { id: "UTL-2", utility: "Water", provider: "Pune Municipal Corporation", consumerNumber: "PMC-W-33901", address: "Flat 12B, Silver Oak Residency, Pune", status: "Active" },
+    ],
+    digitalLocker: [
+      { id: "DGL-1", document: "Degree Certificate", issuer: "Shivaji University", issuedOn: "2005-09-14", format: "PDF" },
+      { id: "DGL-2", document: "PAN Card", issuer: "Income Tax Department", issuedOn: "2008-09-12", format: "XML" },
+    ],
+    elections: [
+      { id: "ELE-1", election: "General Election", year: "2024", constituency: "Pune", participated: true },
+      { id: "ELE-2", election: "State Assembly Election", year: "2019", constituency: "Kothrud", participated: true },
+    ],
+    criminalClearance: {
+      certificateNumber: "PCC/PUN/2023/33901",
+      issuingAuthority: "Commissioner of Police, Pune",
+      issuedOn: "2023-11-28",
+      validTill: "2025-11-27",
+      result: "No Adverse Record",
+      remarks: "No case, conviction or pending proceeding recorded against this citizen.",
+    },
+  },
+
   timeline: [
     { date: "2008-06-14", title: "Driving licence issued", description: "LMV driving licence issued.", department: "Regional Transport Office", category: "Licence", evidenceIds: ["EV-TR-02"] },
     { date: "2008-09-12", title: "PAN issued", description: "Permanent Account Number allotted.", department: "Income Tax Department", category: "Identity", evidenceIds: ["EV-ID-01"] },

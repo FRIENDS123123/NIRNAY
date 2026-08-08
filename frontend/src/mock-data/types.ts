@@ -479,6 +479,73 @@ export interface GovDocument {
 }
 
 // ---------------------------------------------------------------------------
+// Civic profile — lightweight everyday records a citizen would recognise from
+// their own government portal. Deliberately shallow: these enrich the profile
+// without competing with the ten intelligence domains above.
+// ---------------------------------------------------------------------------
+
+export interface EducationRecord {
+  id: string;
+  qualification: string;
+  institution: string;
+  board: string;
+  year: string;
+  status: "Verified" | "Self-declared";
+}
+
+export interface TelecomConnection {
+  id: string;
+  operator: string;
+  maskedNumber: string;
+  type: "Prepaid" | "Postpaid" | "Broadband";
+  activeSince: string;
+  status: "Active" | "Disconnected";
+}
+
+export interface UtilityConnection {
+  id: string;
+  utility: "Electricity" | "Water" | "Piped Gas" | "Municipal Tax";
+  provider: string;
+  consumerNumber: string;
+  address: string;
+  status: "Active" | "Closed";
+}
+
+export interface DigitalLockerItem {
+  id: string;
+  document: string;
+  issuer: string;
+  issuedOn: string;
+  format: "PDF" | "XML";
+}
+
+export interface ElectionRecord {
+  id: string;
+  election: string;
+  year: string;
+  constituency: string;
+  participated: boolean;
+}
+
+export interface CriminalClearance {
+  certificateNumber: string;
+  issuingAuthority: string;
+  issuedOn: string;
+  validTill: string;
+  result: "No Adverse Record" | "Records Found" | "Pending";
+  remarks: string;
+}
+
+export interface CivicProfile {
+  education: EducationRecord[];
+  telecom: TelecomConnection[];
+  utilities: UtilityConnection[];
+  digitalLocker: DigitalLockerItem[];
+  elections: ElectionRecord[];
+  criminalClearance: CriminalClearance;
+}
+
+// ---------------------------------------------------------------------------
 // Timeline
 // ---------------------------------------------------------------------------
 
@@ -524,6 +591,7 @@ export interface Citizen {
   benefits: Benefit[];
   documents: GovDocument[];
   licences: Licence[];
+  civic: CivicProfile;
   timeline: TimelineEvent[];
   evidence: Evidence[];
   aiSummary: AISummary;

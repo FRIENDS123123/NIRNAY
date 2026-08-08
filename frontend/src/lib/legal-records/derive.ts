@@ -280,5 +280,67 @@ export function deriveLegalRecords(citizen: Citizen): LegalRecord[] {
     });
   }
 
+  // --- Civic records --------------------------------------------------------
+  const { civic } = citizen;
+
+  for (const record of civic.education) {
+    push({
+      id: `${cid}::education::${record.id}`,
+      category: "Document",
+      title: record.qualification,
+      subtitle: `${record.institution} · ${record.board} · ${record.year}`,
+      department: record.board,
+      reference: record.id,
+      issuedOn: `${record.year}-01-01`,
+      defaultStatus: record.status === "Verified" ? "Verified" : "Draft",
+      evidenceIds: [],
+    });
+  }
+
+  for (const record of civic.digitalLocker) {
+    push({
+      id: `${cid}::locker::${record.id}`,
+      category: "Document",
+      title: `Digital Locker — ${record.document}`,
+      subtitle: `${record.issuer} · ${record.format}`,
+      department: record.issuer,
+      reference: record.id,
+      issuedOn: record.issuedOn,
+      defaultStatus: "Verified",
+      evidenceIds: [],
+    });
+  }
+
+  for (const record of civic.utilities) {
+    push({
+      id: `${cid}::utility::${record.id}`,
+      category: "Government",
+      title: `${record.utility} Connection`,
+      subtitle: `${record.provider} · ${record.consumerNumber}`,
+      department: record.provider,
+      reference: record.consumerNumber,
+      defaultStatus: record.status === "Active" ? "Verified" : "Draft",
+      evidenceIds: [],
+    });
+  }
+
+  const clearance = civic.criminalClearance;
+  push({
+    id: `${cid}::clearance::${clearance.certificateNumber}`,
+    category: "Government",
+    title: "Police Clearance Certificate",
+    subtitle: `${clearance.result} · valid to ${clearance.validTill}`,
+    department: clearance.issuingAuthority,
+    reference: clearance.certificateNumber,
+    issuedOn: clearance.issuedOn,
+    defaultStatus:
+      clearance.result === "No Adverse Record"
+        ? "Verified"
+        : clearance.result === "Pending"
+          ? "Needs Review"
+          : "Rejected",
+    evidenceIds: [],
+  });
+
   return records;
 }

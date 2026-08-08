@@ -1,6 +1,6 @@
 import { useSyncExternalStore } from "react";
 import { createLocalStore } from "@/lib/local-store";
-import type { ExportFormat, ReportDocument, SavedReport } from "./types";
+import type { ExportFormat, ReportAudience, ReportDocument, SavedReport } from "./types";
 
 const isReportList = (value: unknown): value is SavedReport[] =>
   Array.isArray(value) &&
@@ -40,6 +40,7 @@ export function nextReportId(): string {
 export interface SaveReportInput {
   id: string;
   document: ReportDocument;
+  audience: ReportAudience;
   citizenId: string;
   citizenName: string;
   investigationId: string | null;

@@ -9,6 +9,7 @@ import { FinancialSection } from "./sections/FinancialSection";
 import { TravelSection } from "./sections/TravelSection";
 import { BenefitsSection } from "./sections/BenefitsSection";
 import { DocumentsSection } from "./sections/DocumentsSection";
+import { CivicSections } from "./sections/CivicSections";
 
 /**
  * The ten intelligence domains of the Citizen 360 profile, in the order an
@@ -28,6 +29,7 @@ export function ProfileSections({ citizen }: { citizen: Citizen }) {
       <TravelSection citizen={citizen} />
       <BenefitsSection citizen={citizen} />
       <DocumentsSection citizen={citizen} />
+      <CivicSections citizen={citizen} />
     </div>
   );
 }

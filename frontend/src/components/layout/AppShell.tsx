@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { TopNav } from "./TopNav";
+import { Toaster } from "@/components/ui/Toaster";
 
 export function AppShell({ children }: { children: ReactNode }) {
   return (
@@ -12,6 +13,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       </a>
       <TopNav />
       <main id="main-content">{children}</main>
+      <Toaster />
     </div>
   );
 }

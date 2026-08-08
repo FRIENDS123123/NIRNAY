@@ -32,6 +32,9 @@ export function ReportCard({ report, index = 0 }: { report: SavedReport; index?:
                   {report.id}
                 </Link>
               </h3>
+              <Badge variant={report.audience === "Citizen" ? "success" : "primary"}>
+                {report.audience === "Citizen" ? "Citizen copy" : "Officer report"}
+              </Badge>
               {report.investigationId ? (
                 <Badge variant="primary">Case {report.investigationId}</Badge>
               ) : (
@@ -55,8 +58,21 @@ export function ReportCard({ report, index = 0 }: { report: SavedReport; index?:
           <span className="flex items-center gap-1.5">
             <Download size={12} strokeWidth={2.25} aria-hidden="true" />
             {report.exports.length} export{report.exports.length === 1 ? "" : "s"}
-            {report.exports[0] && ` · last ${formatRelative(report.exports[0].at)}`}
+            {report.exports[0] &&
+              ` · last ${report.exports[0].format} ${formatRelative(report.exports[0].at)}`}
           </span>
+          {report.exports.length > 0 && (
+            <span className="flex items-center gap-1">
+              {[...new Set(report.exports.map((e) => e.format))].map((format) => (
+                <span
+                  key={format}
+                  className="rounded-md border border-ink-200 bg-canvas px-1.5 py-0.5 font-mono text-[10px] font-semibold text-ink-500"
+                >
+                  {format}
+                </span>
+              ))}
+            </span>
+          )}
         </div>
 
         <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
